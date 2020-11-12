@@ -11,4 +11,5 @@
     <string name="textPhoneNum">Phone Number</string>
     <string name="textBirthdate">BirthDate</string>
     <string name="textAccount">Account Information</string>
+    <string name="textPNum">Phone Number</string>
 </resources>

@@ -4,22 +4,14 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.DatePicker
-import android.widget.TextView
+import android.view.View
+import android.widget.*
 import java.util.*
 
 class MainPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_page)
-
-        var intent = intent
-        val firstname = intent.getStringExtra("firstname")
-        val lastname = intent.getStringExtra("lastname")
-        val email = intent.getStringExtra("email")
-        val  age= intent.getStringExtra("age")
-        val phoneNum = intent.getStringExtra("phoneNum")
 
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
@@ -30,6 +22,16 @@ class MainPage : AppCompatActivity() {
         val signup = findViewById<Button>(R.id.SignUp)
         var bdy = findViewById(R.id.BirthDate) as TextView
 
+        val pSwitch = findViewById<Switch>(R.id.pSwitch)
+        val phoneText = findViewById(R.id.PhoneNumber) as EditText
+        pSwitch.setOnClickListener{
+            if (pSwitch.isChecked == true){
+                phoneText.visibility == View.VISIBLE
+            }else{
+                pSwitch.isChecked == false
+                phoneText.visibility == View.INVISIBLE
+            }
+        }
         pickBtn.setOnClickListener {
             val calendar = DatePickerDialog(
                     this,
@@ -42,16 +44,26 @@ class MainPage : AppCompatActivity() {
             )
             calendar.show()
 
+        }
+        signup.setOnClickListener {
+            var hbdy = bdy.text.toString()
+            val firstname = intent.getStringExtra("First Name")
+            val lastname = intent.getStringExtra("Last Name")
+            val email = intent.getStringExtra("Email Address")
+            val age = intent.getStringExtra("Age")
+            val phoneNum = phoneText.text.toString()
+
+
             /*val hbd = intent.getStringExtra("BirthDate")*/
             val intent = Intent(this@MainPage, FinalInfo::class.java)
             intent.putExtra("First Name", firstname)
             intent.putExtra("Last Name", lastname)
             intent.putExtra("Email Address", email)
-            intent.putExtra("Age",age)
+            intent.putExtra("Age", age)
+            intent.putExtra("BirthDate", hbdy)
             intent.putExtra("Phone Number", phoneNum)
             startActivity(intent)
         }
-
     }
 }
 

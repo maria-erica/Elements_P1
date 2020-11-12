@@ -18,16 +18,6 @@ class MainActivity : AppCompatActivity() {
         val lastname = findViewById<EditText>(R.id.last_name)
         val email = findViewById<EditText>(R.id.email_address)
         val next = findViewById<Button>(R.id.button)
-        val pSwitch = findViewById<Switch>(R.id.pSwitch)
-        val phoneText = findViewById(R.id.PhoneNumber) as EditText
-        pSwitch.setOnClickListener{
-            if (pSwitch.isChecked == true){
-                phoneText.visibility == View.VISIBLE
-            }else{
-                pSwitch.isChecked == false
-                phoneText.visibility == View.INVISIBLE
-            }
-        }
 
         var slider: SeekBar
         var ages= findViewById(R.id.age)as TextView
@@ -53,7 +43,6 @@ class MainActivity : AppCompatActivity() {
             val lastname = lastname.text.toString()
             val email = email.text.toString()
             val  age= ages.text.toString()
-            val phoneNum = phoneText.text.toString()
 
 
             val intent = Intent(this@MainActivity, MainPage::class.java)
@@ -61,7 +50,6 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("Last Name", lastname)
             intent.putExtra("Email Address", email)
             intent.putExtra("Age",age)
-            intent.putExtra("Phone Number", phoneNum)
             startActivity(intent)
 
 
