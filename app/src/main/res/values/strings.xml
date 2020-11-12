@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Elements_P1</string>
+    <string name="textFirstName">First Name</string>
+    <string name="textLastName">Last Name</string>
+    <string name="textEmail">Email Address</string>
+    <string name="textAge">AGE</string>
+    <string name="buttonNext">Next Page</string>
+    <string name="buttonN">Next</string>
+    <string name="switchCP">With Phone Number</string>
+    <string name="switchPhone">Phone Number</string>
+    <string name="textPhoneNum">Phone Number</string>
+    <string name="textBirthdate">BirthDate</string>
+    <string name="textAccount">Account Information</string>
+</resources>
